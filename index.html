@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhilesh | Built with Portlio</title>
+    <meta name="description" content="Data Analyst | Big Data Enthusiast | CSE Student
+
+Turning data into insights, decisions, and intelligent solutions">
+    <meta name="keywords" content="Python, SQL, Java, MySQL, Excel, data analysis, machine learning and database management.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Akhilesh | Built with Portlio">
+    <meta property="og:description" content="Data Analyst | Big Data Enthusiast | CSE Student
+
+Turning data into insights, decisions, and intelligent solutions">
+    
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Akhilesh | Built with Portlio">
+    <meta property="twitter:description" content="Data Analyst | Big Data Enthusiast | CSE Student
+
+Turning data into insights, decisions, and intelligent solutions">
+    
+    
+    <!-- Dynamic Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
+    
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <style>
+        :root {
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Inter', sans-serif;
+        }
+        body { font-family: var(--font-body), sans-serif; margin: 0; padding: 0; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading) !important; }
+        html { scroll-behavior: smooth; }
+    </style>
+    
+    <!-- Analytics Script -->
+    <script>
+        const userId = "71ce5fb2-2ef0-4ff9-b4ba-08d84d682bb7";
+        const apiUrl = "https://theportlio.com/api/analytics";
+        
+        // Track visit with referrer
+        let referrer = 'Direct';
+        if (document.referrer) {
+            try {
+                referrer = new URL(document.referrer).hostname || 'Direct';
+            } catch(e) {
+                referrer = 'Direct';
+            }
+        }
+        
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                user_id: userId,
+                event_type: 'visit',
+                metadata: { referrer }
+            })
+        }).catch(err => console.error('Analytics error:', err));
+        
+        // Track session duration (heartbeat every 10 seconds up to 30 mins)
+        let secondsSpent = 0;
+        const heartbeatInterval = setInterval(() => {
+            secondsSpent += 10;
+            if (secondsSpent > 1800) {
+                clearInterval(heartbeatInterval);
+                return;
+            }
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user_id: userId,
+                    event_type: 'heartbeat',
+                    metadata: { duration: secondsSpent }
+                })
+            }).catch(err => console.error('Analytics error:', err));
+        }, 10000);
+
+        // Track specific clicks
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('a');
+            if (!target) return;
+            
+            let eventType = 'click';
+            let projectId = null;
+            
+            // Resume download
+            if (target.href.includes('pdf') || target.textContent.toLowerCase().includes('resume')) {
+                eventType = 'resume_download';
+            }
+            // Recruiter clicks (e.g., mailto or phone or LinkedIn)
+            else if (target.href.startsWith('mailto:') || target.href.startsWith('tel:') || target.href.includes('linkedin.com')) {
+                eventType = 'recruiter_click';
+            }
+            // Project engagement
+            else if (target.closest('[data-project-id]')) {
+                eventType = 'project_click';
+                projectId = target.closest('[data-project-id]').getAttribute('data-project-id');
+            }
+            
+            if (eventType !== 'click' || projectId) {
+                fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        user_id: userId,
+                        event_type: eventType,
+                        project_id: projectId
+                    })
+                }).catch(err => console.error('Analytics error:', err));
+            }
+        });
+    </script>
+</head>
+<body class="antialiased">
+    <div id="root">
+        <div style="background-color:#0c0a09;color:#c46e6e;font-family:var(--font-body, inherit)" class="min-h-screen antialiased overflow-x-hidden relative"><style>
+                h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading, inherit) !important; }
+            </style><div class="absolute inset-0 pointer-events-none overflow-hidden"><div class="absolute -top-40 -right-40 w-96 h-96 rounded-full blur-3xl opacity-20 animate-pulse" style="background-color:#f43f5e"></div><div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-3xl opacity-15 animate-pulse" style="background-color:#e63d3d;animation-delay:1s"></div></div><header class="relative z-10 px-4 py-4 flex items-center gap-3 justify-between max-w-7xl mx-auto"><div class="flex items-center gap-2 shrink min-w-0"><div class="w-7 h-7 shrink-0 rounded-lg flex items-center justify-center text-xs font-black" style="background:linear-gradient(135deg, #f43f5e40, #e63d3d20)">A</div><span class="font-bold text-sm tracking-tight truncate">Akhilesh</span></div><div class="flex items-center gap-2 shrink-0"></div></header><section class="relative z-10 max-w-3xl mx-auto px-6 pb-20 flex flex-col items-center text-center gap-6 pt-10"><div class="space-y-1 w-full"><p class="font-mono text-xs" style="color:#e63d3d"><span style="color:#f43f5e">const</span> developer = <!-- -->{</p><h1 class="text-4xl font-black pl-4 break-words text-left">Akhilesh</h1><p class="font-mono text-xs opacity-40 pl-4 text-left">bio: <span class="italic">&quot;<!-- -->Data Analyst | Big Data Enthusiast | CSE<!-- -->...&quot;</span></p><p class="font-mono text-xs text-left" style="color:#f43f5e">}</p></div><p class="text-sm opacity-60 leading-relaxed font-sans max-w-sm">Data Analyst | Big Data Enthusiast | CSE Student
+
+Turning data into insights, decisions, and intelligent solutions</p></section><section class="relative z-10 py-16 max-w-7xl mx-auto px-6 border-t" style="border-color:#f43f5e20"><div class="grid grid-cols-1 sm:grid-cols-3 gap-6"><div class="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/30 border-2 border-zinc-900 dark:border-zinc-800 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.15)] flex flex-col justify-between hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.15)] transition-all"><span class="text-4xl font-black" style="color:#f43f5e">+12</span><div class="mt-2 text-left"><h4 class="text-sm font-black uppercase tracking-wide">Years of Experience</h4><p class="text-xs opacity-60 mt-1 leading-normal">Refining crafts and building production applications.</p></div></div><div class="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/30 border-2 border-zinc-900 dark:border-zinc-800 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.15)] flex flex-col justify-between hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.15)] transition-all"><span class="text-4xl font-black" style="color:#f43f5e">+8</span><div class="mt-2 text-left"><h4 class="text-sm font-black uppercase tracking-wide">Projects Completed</h4><p class="text-xs opacity-60 mt-1 leading-normal">Successfully deployed open-source and proprietary software.</p></div></div><div class="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/30 border-2 border-zinc-900 dark:border-zinc-800 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.15)] flex flex-col justify-between hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.15)] transition-all"><span class="text-4xl font-black" style="color:#f43f5e">+25</span><div class="mt-2 text-left"><h4 class="text-sm font-black uppercase tracking-wide">Worldwide Clients</h4><p class="text-xs opacity-60 mt-1 leading-normal">Collaborating globally to build modern web solutions.</p></div></div></div></section><section class="relative z-10 py-16 border-y" style="border-color:#f43f5e20"><div class="max-w-7xl mx-auto px-6"><p class="font-mono text-xs mb-8" style="color:#e63d3d"><span style="color:#f43f5e">const</span> techStack = [</p><div class="flex flex-wrap gap-3 pl-4"><span class="px-4 py-2 rounded-xl text-sm font-bold border hover:scale-105 transition-transform" style="border-color:#f43f5e30;background-color:#f43f5e15;color:#f43f5e">&quot;<!-- -->Python<!-- -->&quot;<!-- -->,</span><span class="px-4 py-2 rounded-xl text-sm font-bold border hover:scale-105 transition-transform" style="border-color:#f43f5e30;background-color:#f43f5e08;color:#e63d3d">&quot;<!-- -->Sql<!-- -->&quot;<!-- -->,</span><span class="px-4 py-2 rounded-xl text-sm font-bold border hover:scale-105 transition-transform" style="border-color:#f43f5e30;background-color:#f43f5e15;color:#c46e6e">&quot;<!-- -->Java<!-- -->&quot;<!-- -->,</span><span class="px-4 py-2 rounded-xl text-sm font-bold border hover:scale-105 transition-transform" style="border-color:#f43f5e30;background-color:#f43f5e08;color:#f43f5e">&quot;<!-- -->Mysql<!-- -->&quot;<!-- -->,</span><span class="px-4 py-2 rounded-xl text-sm font-bold border hover:scale-105 transition-transform" style="border-color:#f43f5e30;background-color:#f43f5e15;color:#e63d3d">&quot;<!-- -->Excel<!-- -->&quot;<!-- -->,</span><span class="px-4 py-2 rounded-xl text-sm font-bold border hover:scale-105 transition-transform" style="border-color:#f43f5e30;background-color:#f43f5e08;color:#c46e6e">&quot;<!-- -->Data analysis<!-- -->&quot;<!-- -->,</span><span class="px-4 py-2 rounded-xl text-sm font-bold border hover:scale-105 transition-transform" style="border-color:#f43f5e30;background-color:#f43f5e15;color:#f43f5e">&quot;<!-- -->Machine learning and database management.<!-- -->&quot;</span></div><p class="font-mono text-xs mt-4 opacity-40">];</p></div></section>            <section class="relative z-10 py-24 max-w-7xl mx-auto px-6"><p class="font-mono text-xs mb-10" style="color:#e63d3d"><span style="color:#f43f5e">const</span> projects = [</p><div class="grid gap-6 grid-cols-1 md:grid-cols-3"><div data-project-id="b8d04ab1-758c-4727-b3ef-1ae0786bf9f3" class="featured-item group relative p-8 rounded-3xl border overflow-hidden hover:-translate-y-2 transition-all flex flex-col justify-between cursor-pointer md:col-span-2 md:row-span-1" style="border-color:#f43f5e20;background-color:#f43f5e08;backdrop-filter:blur(12px)"><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" style="background:radial-gradient(circle at 100% 0%, #f43f5e30, transparent 70%)"></div><div><div class="flex items-center justify-between mb-6"><div class="w-10 h-10 rounded-xl flex items-center justify-center border" style="border-color:#f43f5e30;background-color:#f43f5e10"><svg style="color:#f43f5e" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg></div><svg class="opacity-20 group-hover:opacity-100 transition-opacity" style="color:#f43f5e" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 22 3 22 10"></polyline><line x1="10" y1="14" x2="22" y2="2"></line></svg></div><h3 class="font-black text-xl mb-3 tracking-tight truncate w-full" title="Compiler-Design-Lab">Compiler-Design-Lab</h3><p class="text-sm opacity-50 line-clamp-3 mb-8 leading-relaxed font-sans">// Implementation details pending...</p></div><div class="space-y-4"><div class="flex flex-wrap items-center gap-3"><a href="https://github.com/akhilesh0706/Compiler-Design-Lab" target="_blank" rel="noreferrer" class="px-2.5 py-1 rounded-lg text-[9px] font-extrabold uppercase tracking-wider flex items-center gap-1 border hover:opacity-80 transition-opacity" style="border-color:#f43f5e30;background-color:#f43f5e10;color:#f43f5e"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg> REPO</a></div><div class="flex items-center gap-4 text-[10px] font-bold opacity-40 uppercase tracking-widest"><span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full" style="background-color:#f43f5e"></span>Python</span><span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>0</span></div></div></div></div><p class="font-mono text-xs mt-8 opacity-40">];</p></section><section class="relative z-10 py-24 border-t" style="border-color:#f43f5e20"><div class="max-w-3xl mx-auto px-6 text-center space-y-6"><p class="font-mono text-sm" style="color:#e63d3d"><span style="color:#f43f5e">if</span> (lookingForTalent) <!-- -->{</p><h2 class="text-4xl md:text-6xl font-black">Let&#x27;s Collaborate</h2><p class="font-mono text-xs opacity-30">}</p><p class="opacity-50 font-sans">Open to freelance, full-time, and side-projects.</p></div></section><footer class="relative z-10 py-8 text-center font-mono text-xs opacity-20 border-t" style="border-color:#f43f5e10"><p>// © <!-- -->2026<!-- --> <!-- -->Akhilesh<!-- -->. <span>Built with <a href="https://theportlio.com/" target="_blank" rel="noopener noreferrer" class="font-bold underline">Portlio</a></span></p></footer><script>
+                (function() {
+                    document.addEventListener('click', function(e) {
+                        var card = e.target.closest('.featured-item');
+                        if (!card) return;
+                        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('summary') || e.target.closest('details')) {
+                            return;
+                        }
+                        var details = card.querySelector('details');
+                        if (details) {
+                            details.open = !details.open;
+                        }
+                    });
+                })();
+            </script></div>
+    </div>
+</body>
+</html>
